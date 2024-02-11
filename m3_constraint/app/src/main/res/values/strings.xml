@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">hw3</string>
+    <string name="songName">Наименование композиции</string>
+    <string name="musician">Исполнитель</string>
+</resources>
