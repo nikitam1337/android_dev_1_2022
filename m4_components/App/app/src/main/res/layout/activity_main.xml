@@ -1,18 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/userAvatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/user_image"
+            android:src="@drawable/avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hint_name"
+            app:counterEnabled="true"
+            app:counterMaxLength="40"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userAvatar"
+            app:startIconDrawable="@drawable/ic_person">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="40" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutPhone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="@string/hint_phone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutName"
+            app:startIconDrawable="@drawable/ic_phone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputPhone"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/textViewSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/sex"
+            android:textAppearance="@style/MyHeaderStyle"
+            android:textStyle=""
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutPhone"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutPhone" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupForChoiceSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/textViewSex"
+            app:layout_constraintTop_toBottomOf="@id/textViewSex">
+
+            <RadioButton
+                android:id="@+id/radioButtonMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/female" />
+        </RadioGroup>
+
+        <Switch
+            android:id="@+id/switchNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:checked="false"
+            android:text="@string/switch_notification"
+            android:theme="@style/MySwitchStyle"
+            app:layout_constraintStart_toStartOf="@id/radioGroupForChoiceSex"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupForChoiceSex"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAuthorization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/authorization_on_the_device"
+            android:theme="@style/MyCheckBoxStyle"
+            app:layout_constraintStart_toStartOf="@id/textViewSex"
+            app:layout_constraintTop_toBottomOf="@id/switchNotification" />
+
+        <CheckBox
+            android:id="@+id/checkBoxNewItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/newProductsAndOffers"
+            android:theme="@style/MyCheckBoxStyle"
+            app:layout_constraintStart_toStartOf="@id/textViewSex"
+            app:layout_constraintTop_toBottomOf="@id/checkBoxAuthorization" />
+
+        <TextView
+            android:id="@+id/textViewScores"
+            android:textAppearance="@style/MyHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scores"
+            app:layout_constraintStart_toStartOf="@+id/textViewSex"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxNewItems"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/textViewPointsOfNumber"
+            android:textAppearance="@style/MyHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scores_of_number"
+            android:textColor="#444444"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar"
+            app:layout_constraintTop_toTopOf="@+id/textViewScores"/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutName"
+            app:layout_constraintEnd_toEndOf="@id/inputLayoutPhone"
+            app:layout_constraintTop_toBottomOf="@+id/textViewScores"
+            android:layout_marginTop="16dp"
+            tools:visibility="visible" android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:text="@string/button_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutName"
+            app:layout_constraintEnd_toEndOf="@id/inputLayoutPhone"
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"/>
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

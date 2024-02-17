@@ -7,6 +7,7 @@ android {
     namespace = "com.example.hw4"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.hw4"
         minSdk = 24
@@ -16,6 +17,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
 
     buildTypes {
         release {

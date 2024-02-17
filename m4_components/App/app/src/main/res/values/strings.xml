@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">hw4</string>
+    <string name="user_image">Аватар_Пользователя</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_phone">Телефон</string>
+    <string name="sex">Пол</string>
+    <string name="male">М</string>
+    <string name="female">Ж</string>
+    <string name="switch_notification">Получать уведомления</string>
+    <string name="authorization_on_the_device">Об авторизации на устройстве</string>
+    <string name="newProductsAndOffers">О новинках и предложениях</string>
+    <string name="scores">Баллы</string>
+    <string name="scores_of_number">%d/100</string>
+    <string name="button_save">Сохранить</string>
+    <string name="toast_text">Изменения сохранены</string>
 </resources>
