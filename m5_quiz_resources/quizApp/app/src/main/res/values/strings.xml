@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Know_everything</string>
+    <string name="welcome_picture_name">Welcome_picture_name</string>
+    <string name="button_continue">Продолжить</string>
+</resources>
