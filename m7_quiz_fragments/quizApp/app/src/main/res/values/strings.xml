@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Know_everything</string>
+    <string name="welcome_picture_name">Welcome_picture_name</string>
+    <string name="button_continue">Продолжить</string>
+    <string name="button_start">Начать</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_text">Приветствую в игре Know Everyting!</string>
+
+    <string name="btn_text_back_to_welcome">Назад</string>
+    <string name="bnt_text_go_to_result">Отправить</string>
+    <string name="restart_btn_text">Начать заново</string>
+</resources>

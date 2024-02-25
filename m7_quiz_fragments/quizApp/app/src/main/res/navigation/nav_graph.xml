@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/WelcomeFragment">
+    <fragment
+        android:id="@+id/WelcomeFragment"
+        android:name="com.example.know_everything.WelcomeFragment"
+        android:label="Welcome Screen Fragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_WelcomeFragment_to_SurveyFragment"
+            app:destination="@id/SurveyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SurveyFragment"
+        android:name="com.example.know_everything.SurveyScreenFragment"
+        android:label="Survey Screen Fragment"
+        tools:layout="@layout/fragment_survey_screen">
+        <action
+            android:id="@+id/action_SurveyFragment_to_ResultFragment"
+            app:destination="@id/ResultFragment"
+            app:popUpTo="@id/WelcomeFragment" />
+        <action
+            android:id="@+id/action_SurveyFragment_to_WelcomeFragment"
+            app:destination="@id/WelcomeFragment"
+            app:popUpTo="@id/WelcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ResultFragment"
+        android:name="com.example.know_everything.ResultScreenFragment"
+        android:label="Result Screen Fragment"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_ResultFragment_to_SurveyFragment"
+            app:destination="@id/SurveyFragment"
+            app:popUpTo="@id/WelcomeFragment" />
+    </fragment>
+</navigation>
