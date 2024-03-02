@@ -8,6 +8,18 @@
     tools:context=".ResultScreenFragment">
 
     <TextView
+        android:id="@+id/textView_TitleResultFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_Title_Result_Fragment"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textview_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,11 +31,23 @@
         android:id="@+id/button_restart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:text="@string/restart_btn_text"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textview_result" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_view_result"
+        android:layout_width="wrap_content"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_restart"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/parapara" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

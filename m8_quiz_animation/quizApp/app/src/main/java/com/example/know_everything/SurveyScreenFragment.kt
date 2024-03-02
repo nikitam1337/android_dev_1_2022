@@ -49,9 +49,24 @@ class SurveyScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnBack.alpha = 0f
+        binding.btnBack.animate().apply {
+            duration = 4000
+            alpha(1f)
+            start()
+        }
+        binding.btnToResult.alpha = 0f
+        binding.btnToResult.animate().apply {
+            duration = 4000
+            alpha(1f)
+            start()
+        }
+
         binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_SurveyFragment_to_WelcomeFragment)
         }
+
         binding.btnToResult.setOnClickListener {
             val bundle = Bundle().apply {
                 putInt(
@@ -71,6 +86,7 @@ class SurveyScreenFragment : Fragment() {
                 R.id.action_SurveyFragment_to_ResultFragment, args = bundle
             )
         }
+
 
         //filling textViews
         binding.tvFirstQuestion.text =

@@ -1,5 +1,9 @@
 package com.example.know_everything
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -48,6 +52,28 @@ class ResultScreenFragment : Fragment() {
         binding.buttonRestart.setOnClickListener {
             findNavController().navigate(R.id.action_ResultFragment_to_SurveyFragment)
         }
+
+        ObjectAnimator.ofArgb(
+            binding.textViewTitleResultFragment,
+            "textColor", Color.BLACK, Color.parseColor("#9E13AD")
+        ).apply {
+            duration = 5000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        (AnimatorInflater.loadAnimator(
+            this.context,
+            R.animator.custom_multianimation
+        ) as AnimatorSet).apply {
+            setTarget(binding.buttonRestart)
+            start()
+        }
+
+
+
+
+
         return binding.root
     }
 
@@ -63,11 +89,11 @@ class ResultScreenFragment : Fragment() {
                 "Первый вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].question}\n" +
                 "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[param1!!]}\n" +
                 "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].feedback[param1!!]}\n" +
-                "\n"+
+                "\n" +
                 "Второй вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].question}\n" +
                 "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[param2!!]}\n" +
                 "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].feedback[param3!!]}\n" +
-                "\n"+
+                "\n" +
                 "Третий вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].question}\n" +
                 "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[param3!!]}\n" +
                 "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].feedback[param3!!]}\n"

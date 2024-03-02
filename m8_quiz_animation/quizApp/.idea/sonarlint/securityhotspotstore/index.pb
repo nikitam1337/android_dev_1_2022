@@ -17,3 +17,5 @@ j
 :app/src/main/java/com/example/know_everything/quiz/Quiz.kt,2\e\2e985a1881e882e4087dbed07a1495bd45327bd3
 u
 Eapp/src/main/java/com/example/know_everything/ResultScreenFragment.kt,7\5\7533835637e826451a5d2aaf1b9d9a16934c3b92
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
