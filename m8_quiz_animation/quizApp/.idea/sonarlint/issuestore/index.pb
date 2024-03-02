@@ -1,0 +1,19 @@
+
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+m
+=app/src/main/java/com/example/know_everything/MainActivity.kt,e\b\eb85ce6c9ac66ef5d62102f4c44df8bb98e493d4
+p
+@app/src/main/java/com/example/know_everything/WelcomeFragment.kt,9\1\91bc7b1f162d0b12190fbf2fc2fff5759be851e2
+u
+Eapp/src/main/java/com/example/know_everything/SurveyScreenFragment.kt,0\d\0dd1190d2fc13a6537044353feaf572a05bdb266
+q
+Aapp/src/main/java/com/example/know_everything/quiz/QuizStorage.kt,3\6\3653bf127cb27a9b97e225a37d5244c6ba5c58a0
+n
+>app/src/main/java/com/example/know_everything/quiz/Question.kt,d\e\de1db4083b40a0fb1c5fcdb57201f11e316d0446
+j
+:app/src/main/java/com/example/know_everything/quiz/Quiz.kt,2\e\2e985a1881e882e4087dbed07a1495bd45327bd3
+u
+Eapp/src/main/java/com/example/know_everything/ResultScreenFragment.kt,7\5\7533835637e826451a5d2aaf1b9d9a16934c3b92
