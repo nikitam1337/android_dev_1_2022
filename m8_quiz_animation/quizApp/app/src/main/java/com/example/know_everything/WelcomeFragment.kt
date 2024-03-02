@@ -1,5 +1,7 @@
 package com.example.know_everything
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,9 +29,11 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.buttonStart.setOnClickListener {
             findNavController().navigate(R.id.action_WelcomeFragment_to_SurveyFragment)
         }
+
     }
 
     override fun onDestroyView() {

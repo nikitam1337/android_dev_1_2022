@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_WelcomeFragment_to_SurveyFragment"
-            app:destination="@id/SurveyFragment" />
+            app:destination="@id/SurveyFragment"
+            app:enterAnim="@anim/from_right_anim"
+            app:exitAnim="@anim/to_left_anim"
+            app:popEnterAnim="@anim/from_left_anim"
+            app:popExitAnim="@anim/to_right_anim" />
     </fragment>
     <fragment
         android:id="@+id/SurveyFragment"
@@ -21,10 +25,18 @@
         <action
             android:id="@+id/action_SurveyFragment_to_ResultFragment"
             app:destination="@id/ResultFragment"
+            app:enterAnim="@anim/from_right_anim"
+            app:exitAnim="@anim/to_left_anim"
+            app:popEnterAnim="@anim/from_left_anim"
+            app:popExitAnim="@anim/to_right_anim"
             app:popUpTo="@id/WelcomeFragment" />
         <action
             android:id="@+id/action_SurveyFragment_to_WelcomeFragment"
             app:destination="@id/WelcomeFragment"
+            app:enterAnim="@anim/from_right_anim"
+            app:exitAnim="@anim/to_left_anim"
+            app:popEnterAnim="@anim/from_left_anim"
+            app:popExitAnim="@anim/to_right_anim"
             app:popUpTo="@id/WelcomeFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -37,6 +49,10 @@
         <action
             android:id="@+id/action_ResultFragment_to_SurveyFragment"
             app:destination="@id/SurveyFragment"
+            app:enterAnim="@anim/from_right_anim"
+            app:exitAnim="@anim/to_left_anim"
+            app:popEnterAnim="@anim/from_left_anim"
+            app:popExitAnim="@anim/to_right_anim"
             app:popUpTo="@id/WelcomeFragment" />
     </fragment>
 </navigation>
