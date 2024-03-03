@@ -9,6 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.know_everything.databinding.FragmentWelcomeBinding
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.Calendar
 
 class WelcomeFragment : Fragment() {
     private var _binding: FragmentWelcomeBinding? = null
@@ -16,6 +20,8 @@ class WelcomeFragment : Fragment() {
         get() {
             return _binding!!
         }
+
+    val dateFormat = SimpleDateFormat("dd.MM.yyyy")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,10 +36,22 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.buttonStart.setOnClickListener {
             findNavController().navigate(R.id.action_WelcomeFragment_to_SurveyFragment)
         }
 
+        val calendar = Calendar.getInstance()
+        binding.buttonDateOfBirth.setOnClickListener {
+            val dateDialog = MaterialDatePicker.Builder.datePicker()
+                .setTitleText(resources.getString(R.string.open_dateBirth_picker))
+                .build()
+            dateDialog.addOnPositiveButtonClickListener { time ->
+                calendar.timeInMillis = time
+                Snackbar.make(binding.buttonDateOfBirth, dateFormat.format(calendar.time), Snackbar.LENGTH_SHORT).show()
+            }
+            dateDialog.show(parentFragmentManager, "Date")
+        }
     }
 
     override fun onDestroyView() {

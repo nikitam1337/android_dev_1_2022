@@ -11,4 +11,5 @@
     <string name="bnt_text_go_to_result">Отправить</string>
     <string name="restart_btn_text">Начать заново</string>
     <string name="text_Title_Result_Fragment">Ваши результаты:</string>
+    <string name="open_dateBirth_picker">Выберите дату рождения</string>
 </resources>

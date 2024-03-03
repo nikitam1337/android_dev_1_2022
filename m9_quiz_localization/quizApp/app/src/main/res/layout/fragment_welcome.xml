@@ -30,6 +30,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_dateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/new_purple"
+        android:padding="16dp"
+        android:text="@string/open_dateBirth_picker"
+        app:layout_constraintBottom_toTopOf="@+id/button_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_start"
@@ -39,9 +51,9 @@
         android:background="@drawable/custom_ripple_effect"
         android:clickable="true"
         android:focusable="true"
-        app:cornerRadius="32dp"
         android:text="@string/button_start"
         android:textSize="20sp"
+        app:cornerRadius="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
