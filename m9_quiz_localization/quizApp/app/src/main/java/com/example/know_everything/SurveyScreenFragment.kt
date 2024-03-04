@@ -1,13 +1,15 @@
 package com.example.know_everything
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.know_everything.databinding.FragmentSurveyScreenBinding
 import com.example.super_quiz.quiz.QuizStorage
+import java.util.Locale
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,38 +90,30 @@ class SurveyScreenFragment : Fragment() {
         }
 
 
-        //filling textViews
-        binding.tvFirstQuestion.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].question
-        binding.tvSecondQuestion.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].question
-        binding.tvThirdQuestion.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].question
-        //filling radioButtons
-        binding.optAnswer1Q1.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[0]
-        binding.optAnswer2Q1.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[1]
-        binding.optAnswer3Q1.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[2]
-        binding.optAnswer4Q1.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[3]
-        binding.optAnswer1Q2.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[0]
-        binding.optAnswer2Q2.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[1]
-        binding.optAnswer3Q2.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[2]
-        binding.optAnswer4Q2.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[3]
-        binding.optAnswer1Q3.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[0]
-        binding.optAnswer2Q3.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[1]
-        binding.optAnswer3Q3.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[2]
-        binding.optAnswer4Q3.text =
-            QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[3]
+        val quiz = QuizStorage.getQuiz(Locale.getDefault())
+
+        // Setting questions
+        binding.tvFirstQuestion.text = quiz.questions[0].question
+        binding.tvSecondQuestion.text = quiz.questions[1].question
+        binding.tvThirdQuestion.text = quiz.questions[2].question
+
+        // Setting answers for question 1
+        binding.optAnswer1Q1.text = quiz.questions[0].answers[0]
+        binding.optAnswer2Q1.text = quiz.questions[0].answers[1]
+        binding.optAnswer3Q1.text = quiz.questions[0].answers[2]
+        binding.optAnswer4Q1.text = quiz.questions[0].answers[3]
+
+        // Setting answers for question 2
+        binding.optAnswer1Q2.text = quiz.questions[1].answers[0]
+        binding.optAnswer2Q2.text = quiz.questions[1].answers[1]
+        binding.optAnswer3Q2.text = quiz.questions[1].answers[2]
+        binding.optAnswer4Q2.text = quiz.questions[1].answers[3]
+
+        // Setting answers for question 3
+        binding.optAnswer1Q3.text = quiz.questions[2].answers[0]
+        binding.optAnswer2Q3.text = quiz.questions[2].answers[1]
+        binding.optAnswer3Q3.text = quiz.questions[2].answers[2]
+        binding.optAnswer4Q3.text = quiz.questions[2].answers[3]
     }
 
     private fun getIndexOfAnswer(id: Int, radioGroup: Int): Int {

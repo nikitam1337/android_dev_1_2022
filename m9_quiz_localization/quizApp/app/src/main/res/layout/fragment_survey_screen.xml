@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            tools:text="First question" />
+            tools:text="@string/first_question" />
 
         <RadioGroup
             android:id="@+id/radioGroupQuestion1"
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            tools:text="Second question" />
+            tools:text="@string/second_question" />
 
         <RadioGroup
             android:id="@+id/radioGroupQuestion2"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
-            tools:text="Third question" />
+            tools:text="@string/third_question" />
 
         <RadioGroup
             android:id="@+id/radioGroupQuestion3"

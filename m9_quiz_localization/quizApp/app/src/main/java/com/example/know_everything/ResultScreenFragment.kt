@@ -11,8 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.know_everything.databinding.FragmentResultBinding
-import com.example.know_everything.databinding.FragmentSurveyScreenBinding
+import com.example.super_quiz.quiz.Quiz
 import com.example.super_quiz.quiz.QuizStorage
+import java.util.Locale
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +27,7 @@ private const val ARG_PARAM3 = "param3"
  * create an instance of this fragment.
  */
 class ResultScreenFragment : Fragment() {
+
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
 
@@ -85,18 +87,19 @@ class ResultScreenFragment : Fragment() {
     private fun getResultText(
         param1: Int?, param2: Int?, param3: Int?
     ): String {
-        return "Результаты опроса :\n" +
-                "Первый вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].question}\n" +
-                "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].answers[param1!!]}\n" +
-                "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[0].feedback[param1!!]}\n" +
+        val quiz = QuizStorage.getQuiz(Locale.getDefault())
+        return "${getString(R.string.survey_results)}\n" +
+                "${getString(R.string.first_question)} ${quiz.questions[0].question}\n" +
+                "${getString(R.string.answer)} ${quiz.questions[0].answers[param1!!]}\n" +
+                "${getString(R.string.feedback)} ${quiz.questions[0].feedback[param1]}\n" +
                 "\n" +
-                "Второй вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].question}\n" +
-                "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].answers[param2!!]}\n" +
-                "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[1].feedback[param3!!]}\n" +
+                "${getString(R.string.second_question)} ${quiz.questions[1].question}\n" +
+                "${getString(R.string.answer)} ${quiz.questions[1].answers[param2!!]}\n" +
+                "${getString(R.string.feedback)} ${quiz.questions[1].feedback[param2]}\n" +
                 "\n" +
-                "Третий вопрос: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].question}\n" +
-                "Ответ: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].answers[param3!!]}\n" +
-                "Feedback: ${QuizStorage.getQuiz(QuizStorage.Locale.Ru).questions[2].feedback[param3!!]}\n"
+                "${getString(R.string.third_question)} ${quiz.questions[2].question}\n" +
+                "${getString(R.string.answer)} ${quiz.questions[2].answers[param3!!]}\n" +
+                "${getString(R.string.feedback)} ${quiz.questions[2].feedback[param3]}\n"
 
     }
 }

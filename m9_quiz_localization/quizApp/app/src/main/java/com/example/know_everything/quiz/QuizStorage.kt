@@ -1,19 +1,18 @@
 package com.example.super_quiz.quiz
 
+import java.util.Locale
+
 object QuizStorage {
-    fun getQuiz(locale: Locale): Quiz = when (locale) {
-        Locale.Ru -> quizRu
-        Locale.En -> quizEn
+
+    fun getQuiz(locale: Locale): Quiz = when (locale.language) {
+        Locale("ru").language -> quizRu
+        else -> quizEn
     }
 
     fun answer(quiz: Quiz, answers: List<Int>): String = quiz
         .questions
         .zip(answers) { question, index -> question.feedback[index] }
         .joinToString(separator = " ")
-
-    enum class Locale {
-        Ru, En
-    }
 
     private val quizRu = object : Quiz {
         override val questions: List<Question> = listOf(
