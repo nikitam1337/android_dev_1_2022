@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppTimer</string>
+    <string name="start">START</string>
+    <string name="countdown_timer">Countdown Timer</string>
+</resources>
