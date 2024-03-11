@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">hw11</string>
+    <string name="EditText_text">Введите текст</string>
+    <string name="ClearButton_text">Очистить</string>
+    <string name="save_data_button_text">Сохранить</string>
 </resources>
