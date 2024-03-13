@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
     private val _isSearching = MutableLiveData(false)
     val isSearching: LiveData<Boolean> = _isSearching
+
     private val _searchResult = MutableLiveData<String>()
     val searchResult: LiveData<String> = _searchResult
 
