@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">mvvm</string>
+    <string name="search">Поиск</string>
+    <string name="default_text_results">Здесь будет отображаться результат запроса</string>
+</resources>
