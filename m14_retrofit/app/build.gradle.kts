@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -40,11 +42,20 @@ android {
 }
 
 dependencies {
+    implementation(libs.retrofit2.retrofit)
+
+    implementation(libs.moshi)
+    kapt(libs.squareup.moshi.kotlin)
+    implementation(libs.retrofit2.converter.moshi)
+
+    implementation(libs.google.gson)
+    implementation(libs.converter.gson)
+
+    
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     implementation (libs.androidx.lifecycle.runtime.ktx)
     implementation (libs.androidx.lifecycle.livedata.ktx)
     implementation (libs.androidx.lifecycle.common.java8)
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

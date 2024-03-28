@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.example.myapp14.databinding.FragmentMainBinding
 
 
-class MainFragment : Fragment() {
+class  MainFragment : Fragment() {
 
     companion object {
         fun newInstance() = MainFragment()
@@ -21,6 +21,9 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+
+
 
         val binding = FragmentMainBinding.inflate(inflater, container, false)
 
