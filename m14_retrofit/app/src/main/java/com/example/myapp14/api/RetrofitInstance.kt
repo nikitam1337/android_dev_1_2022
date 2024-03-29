@@ -1,5 +1,7 @@
-package com.example.myapp14
+package com.example.myapp14.api
 
+import com.example.myapp14.data.PersonsList
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.http.GET
 import retrofit2.converter.gson.GsonConverterFactory
@@ -18,5 +20,5 @@ object RetrofitInstance{
 
 interface SearchPersonApi {
     @GET("/api")
-    suspend fun getPersonInfo()
+    suspend fun getPersonsInfo(): Response<PersonsList>
 }

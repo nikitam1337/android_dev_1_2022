@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myapp14.databinding.ActivityMainBinding
+import com.example.myapp14.view.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
