@@ -8,7 +8,7 @@ import retrofit2.Response
 public class PersonRepository {
 
     suspend fun loadUser(): Response<PersonsList> {
-        delay(3000)
+        delay(1000)
         return retrofit()
     }
 

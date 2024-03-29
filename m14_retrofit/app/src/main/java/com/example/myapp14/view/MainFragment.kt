@@ -2,6 +2,7 @@ package com.example.myapp14.view
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,9 @@ class MainFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUser()
+        if (savedInstanceState == null) {
+            viewModel.getUser()
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
@@ -58,8 +61,11 @@ class MainFragment : Fragment() {
                     }
                 }
             }
+        }
 
-            viewModel.user.collectLatest { personsList ->
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.user.collect { personsList ->
+                Log.d("@@@", "${personsList}")
                 personsList?.results?.firstOrNull()?.let { user ->
                     binding.gender.text = "Gender: ${user.gender}"
                     binding.name.text = "Name: ${user.name.first} ${user.name.last}"
@@ -76,6 +82,10 @@ class MainFragment : Fragment() {
         }
 
         binding.buttonUpdate.setOnClickListener {
+            viewModel.getUser()
+        }
+
+        binding.buttonReload.setOnClickListener {
             viewModel.getUser()
         }
     }
