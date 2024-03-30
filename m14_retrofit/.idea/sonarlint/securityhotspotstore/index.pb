@@ -33,3 +33,5 @@ p
 @app/src/main/java/com/example/myapp14/viewmodel/MainViewModel.kt,b\2\b25ba6f1cb93b63849dd3c8a66a31bb339682557
 h
 8app/src/main/java/com/example/myapp14/viewmodel/State.kt,9\f\9fd1f9369783e31e561fa54d3beff7d8ecb17e55
+C
+settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
