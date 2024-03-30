@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">roomApp</string>
+    <string name="edit_text">Введите текст</string>
+    <string name="add">Добавить</string>
+    <string name="clear_all">Очистить</string>
+    <string name="error_text">Ошибка ввода: Допустимы только буквы и дефисы!</string>
+</resources>
