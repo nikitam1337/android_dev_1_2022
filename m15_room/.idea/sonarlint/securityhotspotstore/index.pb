@@ -1,10 +1,6 @@
 
-e
-5app/src/main/java/com/example/roomapp/MainActivity.kt,7\a\7a29a2dd544dd54f205249753deb81958dd892c9
 D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
-o
-?app/src/main/java/com/example/roomapp/fragments/MainFragment.kt,1\1\114bf06d3d267276fb2fca6faea5540334c12c99
 p
 @app/src/main/java/com/example/roomapp/viewmodel/MainViewModel.kt,6\5\651bb143c3b623da3ffc4b503dcedeeb98026049
 @
@@ -16,22 +12,8 @@ I
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-]
--app/src/main/java/com/example/roomapp/Word.kt,8\d\8dd0dc5a8c04b361b29ef51f816766984bd0ed4a
-`
-0app/src/main/java/com/example/roomapp/WordDao.kt,3\4\34fc1b07772e4864504baa0f421f1fe8ac912b30
-d
-4app/src/main/java/com/example/roomapp/AppDatabase.kt,1\2\125a8fbec5e0a8e5bed7bf7040d40fea61087589
-c
-3app/src/main/java/com/example/roomapp/db/WordDao.kt,c\6\c6725dcdd25f502f95842a91b9cf661d64eb2b94
-`
-0app/src/main/java/com/example/roomapp/db/Word.kt,2\3\236c1dbb5d03e72f95aae136609277638596418a
-g
-7app/src/main/java/com/example/roomapp/db/AppDatabase.kt,2\9\2995f28e2386ad2a28169b9c0a8c06df648ea4b0
 \
 ,app/src/main/java/com/example/roomapp/App.kt,6\f\6f370491a1813956428aa66bd6fccc295a163808
-^
-.app/src/main/java/com/example/roomapp/State.kt,2\f\2fabc5aa8b3b8f5b5984fb1c4f665a130f864724
 h
 8app/src/main/java/com/example/roomapp/viewmodel/State.kt,8\e\8ea175b71054adccbe9cdc3f4c80ca888130ff9d
 r

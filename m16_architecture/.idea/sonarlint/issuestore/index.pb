@@ -1,3 +1,27 @@
 
-f
-6app/src/main/java/com/example/cleanapp/MainActivity.kt,4\b\4b723ca7fa58597a72bcb5843d02c433a4e316c1
+D
+app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
+o
+?app/src/main/java/com/example/cleanapp/entity/UsefulActivity.kt,f\b\fb4784ce9b2fabcfd79268d717335049a156d9c7
+p
+@app/src/main/java/com/example/cleanapp/data/UsefulActivityDto.kt,3\b\3b255154e6a89590092623fc6111a98d4967f85a
+y
+Iapp/src/main/java/com/example/cleanapp/data/UsefulActivitiesRepository.kt,0\a\0af69aa43e0b37386be80b5f01134a3e958c8c35
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
+I
+gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
+n
+>app/src/main/java/com/example/cleanapp/api/RetrofitInstance.kt,f\e\fe8fd1d51c7e316258908e3886194cc0511d4603
+y
+Iapp/src/main/java/com/example/cleanapp/domain/GetUsefulActivityUseCase.kt,3\0\30fccfc8c68bbd96a82fc5509c3657f9112ca749
+t
+Dapp/src/main/java/com/example/cleanapp/presentation/MainViewModel.kt,4\5\45dec58621e6637bc686181503af6e98be926582
+s
+Capp/src/main/java/com/example/cleanapp/presentation/MainFragment.kt,a\e\ae64d1ca7a8da93575f2ee4a69f9cd7da96da020
+s
+Capp/src/main/java/com/example/cleanapp/presentation/MainActivity.kt,1\d\1d509d98f6c8ec64537b464df35967b7499a002b
+]
+-app/src/main/java/com/example/cleanapp/App.kt,3\f\3f531245d9c2df3a5a8bd26a0a4a21c2aa9e2d78
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
