@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MarsPhotoListFragment">
+
+    <fragment
+        android:id="@+id/MarsPhotoListFragment"
+        android:name="com.example.recyclerview.presentation.fragments.MarsPhotoListFragment"
+        tools:layout="@layout/fragment_mars_photo_list">
+
+        <action
+            android:id="@+id/action_ListPhotoFragment_to_ItemPhotoMarsFragment"
+            app:destination="@id/MarsPhotoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/MarsPhotoFragment"
+        android:name="com.example.recyclerview.presentation.fragments.MarsPhotoFragment"
+        tools:layout="@layout/fragment_mars_photo">
+
+        <argument
+            android:name="MarsPhotoArg"
+            app:argType="com.example.recyclerview.data.model.MarsPhoto" />
+
+    </fragment>
+
+
+</navigation>

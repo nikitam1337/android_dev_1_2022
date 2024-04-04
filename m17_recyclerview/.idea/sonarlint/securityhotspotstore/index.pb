@@ -1,20 +1,10 @@
 
-j
-:app/src/main/java/com/example/recyclerview/MainActivity.kt,9\b\9b319492b325bb9ad251e896cb15b49932c5715e
 D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 @
 build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d
-j
-:app/src/main/java/com/example/recyclerview/MainFragment.kt,c\2\c2786d39dc8fec2cc13c3271ce147b5a86e06383
 w
 Gapp/src/main/java/com/example/recyclerview/presentation/MainActivity.kt,a\f\affb42563d6c47609592776a2817d8c6b5ac2a93
-w
-Gapp/src/main/java/com/example/recyclerview/presentation/MainFragment.kt,d\c\dc41fb00e9e7b27cebab637987bc3e3ec55385c3
-o
-?app/src/main/java/com/example/recyclerview/data/api/Retrofit.kt,e\6\e602a8e03fa7d0801bfed435e9c0315a3afd6ee6
-s
-Capp/src/main/java/com/example/recyclerview/data/api/RetrofitNASA.kt,8\6\86924f90c1eac6e13687ce5797ae4f52e8485c44
 ~
 Napp/src/main/java/com/example/recyclerview/data/api/RetrofitMarsRoverPhotos.kt,8\a\8aa6f6cc956b279d13b34a869b121c277925c7ab
 r
@@ -27,5 +17,19 @@ q
 Aapp/src/main/java/com/example/recyclerview/data/MarsPhotosList.kt,e\f\ef9f2030783664c44634928d92834a18175662bc
 {
 Kapp/src/main/java/com/example/recyclerview/data/repo/MarsPhotoRepository.kt,7\2\72f4079748377afff62d135028d28af590571f42
-€
-Papp/src/main/java/com/example/recyclerview/presentation/MarsPhotoListFragment.kt,9\0\909fdbdf0e15e4611bca81af7900c1e0669288a9
+I
+gradle/libs.versions.toml,d\7\d7595319a0658be6f1ed500ad590d42e4b28bc4f
+{
+Kapp/src/main/java/com/example/recyclerview/presentation/MarsPhotoAdapter.kt,c\f\cf92ebbeae409bbc0641a536e9e58c548c274147
+Š
+Zapp/src/main/java/com/example/recyclerview/presentation/fragments/MarsPhotoListFragment.kt,0\a\0a11346b9fba0fb06a9fbe66ad0e4fda93c4559f
+Œ
+\app/src/main/java/com/example/recyclerview/presentation/viewmodels/MarsPhotoListViewModel.kt,7\b\7bee74d83915f272a6d19e57f59d682a7b440147
+†
+Vapp/src/main/java/com/example/recyclerview/presentation/fragments/MarsPhotoFragment.kt,2\d\2dcb79d90e77aa10c59607775d18401f2db19593
+“
+capp/src/main/java/com/example/recyclerview/presentation/viewmodels/MarsPhotoListViewModelFactory.kt,5\b\5b358cf68275c92654d3cab2c8da4aa1a054655b
+a
+1app/src/main/java/com/example/recyclerview/App.kt,6\d\6d916134f8d744f6bae3e78001f83f34098b80dd
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e

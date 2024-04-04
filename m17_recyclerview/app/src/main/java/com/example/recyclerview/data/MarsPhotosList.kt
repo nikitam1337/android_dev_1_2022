@@ -6,5 +6,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MarsPhotosList(
-    val marsPhotos: List<MarsPhoto>
+    val photos: List<MarsPhoto>
 ) : Parcelable
