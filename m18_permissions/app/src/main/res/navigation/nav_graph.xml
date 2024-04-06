@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listPhotoFragment">
+
+    <fragment
+        android:id="@+id/listPhotoFragment"
+        android:name="com.example.attractions.presentation.fragments.ListPhotoFragment"
+        tools:layout="@layout/fragment_list_photo">
+
+        <action
+            android:id="@+id/action_ListPhotoFragment_to_TakePhotoFragment"
+            app:destination="@id/takePhotoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/takePhotoFragment"
+        android:name="com.example.attractions.presentation.fragments.TakePhotoFragment"
+        tools:layout="@layout/fragment_take_photo">
+
+
+        <action
+            android:id="@+id/action_TakePhotoFragment_to_ListPhotoFragment"
+            app:destination="@id/listPhotoFragment"
+            app:popUpTo="@id/listPhotoFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+</navigation>
