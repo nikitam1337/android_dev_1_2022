@@ -37,3 +37,5 @@ e
 5app/src/main/java/com/example/attractions/DbModule.kt,2\c\2c8bf08704d4d8d842a244a0655ce0b846900f26
 v
 Fapp/src/main/java/com/example/attractions/presentation/MainActivity.kt,2\6\2663c587584601cdddf7bf80a24f9188e093964e
+o
+?app/src/main/java/com/example/attractions/data/db/Migrations.kt,5\e\5e64f1443c31181964c9fb0116e8991f525f7d03

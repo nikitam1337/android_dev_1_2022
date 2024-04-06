@@ -4,35 +4,18 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.attractions.data.db.Repository
-import com.example.attractions.presentation.StateTakePhotoFragment
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import com.example.attractions.data.model.Photo
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class TakePhotoViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
-    private val _state = MutableStateFlow(StateTakePhotoFragment.MAKE_PHOTO)
-    val stateFragment = _state.asStateFlow()
+    fun getUriLastPhoto(context: Context): String {
+        return repository.getUriLastPhoto(context)
+    }
 
-
-    fun insertPhoto(context: Context) {
+    fun insertPhoto(photo: Photo) {
         viewModelScope.launch {
-            repository.insertData(context)
+            repository.insertData(photo)
         }
     }
-
-
-    fun takePicture() {
-        viewModelScope.launch {
-            delay(1000)
-            _state.value = StateTakePhotoFragment.READY_PHOTO
-        }
-    }
-
-    fun retakePhoto() {
-        _state.value = StateTakePhotoFragment.MAKE_PHOTO
-    }
-
-
 }

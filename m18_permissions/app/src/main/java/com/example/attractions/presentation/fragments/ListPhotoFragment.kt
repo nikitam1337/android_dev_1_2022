@@ -60,6 +60,7 @@ class ListPhotoFragment : Fragment() {
     private fun onClickPhoto(item: Photo) {
         MaterialAlertDialogBuilder(requireContext())
             .setBackground(Drawable.createFromPath(item.uri))
+            .setMessage("Date: ${item.date}")
             .show()
     }
 

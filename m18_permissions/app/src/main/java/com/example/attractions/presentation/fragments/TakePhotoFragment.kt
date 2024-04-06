@@ -23,7 +23,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.attractions.R
+import com.example.attractions.data.model.Photo
 import com.example.attractions.databinding.FragmentTakePhotoBinding
+import com.example.attractions.presentation.viewmodels.ListPhotoAdapter
 import com.example.attractions.presentation.viewmodels.TakePhotoViewModel
 import com.example.attractions.presentation.viewmodels.TakePhotoViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -67,13 +69,9 @@ class TakePhotoFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         executor = ContextCompat.getMainExecutor(requireContext())
-
         checkPermission()
-
         clickButtonTakeNewPhoto()
-
         clickButtonSavePhoto()
 
     }
@@ -92,12 +90,10 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
-
     private fun clickButtonTakeNewPhoto() {
         binding.buttonTakeNewPhoto.setOnClickListener {
             binding.image.setImageDrawable(null)
             takePhoto()
-            viewModel.takePicture()
         }
     }
 
@@ -133,7 +129,9 @@ class TakePhotoFragment : Fragment() {
                             .fitCenter()
                             .into(binding.image)
 
-                        viewModel.insertPhoto(requireContext())
+                        val datePhoto = SimpleDateFormat(FILE_NAME_FORMAT, Locale.getDefault()).format(System.currentTimeMillis())
+                        val photo = Photo(viewModel.getUriLastPhoto(requireContext()), datePhoto)
+                        viewModel.insertPhoto(photo)
                     }
 
                     override fun onError(exception: ImageCaptureException) {
@@ -161,7 +159,6 @@ class TakePhotoFragment : Fragment() {
             cameraProvider.bindToLifecycle(
                 viewLifecycleOwner,
                 CameraSelector.DEFAULT_BACK_CAMERA,
-//                CameraSelector.DEFAULT_FRONT_CAMERA,
                 preview,
                 imageCapture
             )
@@ -179,6 +176,4 @@ class TakePhotoFragment : Fragment() {
             }
         }.toTypedArray()
     }
-
-
 }
