@@ -25,8 +25,6 @@ Wapp/src/main/java/com/example/attractions/presentation/viewmodels/ListPhotoView
 Wapp/src/main/java/com/example/attractions/presentation/viewmodels/TakePhotoViewModel.kt,d\e\deeea1713413eaf468cd8f7c8f9d70c713c169b6
 Ž
 ^app/src/main/java/com/example/attractions/presentation/viewmodels/TakePhotoViewModelFactory.kt,5\e\5ed69a52f011e5db7f9876b0a1c60762f496878d
-€
-Papp/src/main/java/com/example/attractions/presentation/StateTakePhotoFragment.kt,c\f\cff5c3ce0b12357e29d0c7ec188a67c2e2572010
 …
 Uapp/src/main/java/com/example/attractions/presentation/viewmodels/ListPhotoAdapter.kt,8\0\8084483d53340f03eabc4a5a2d884be0aa73ba37
 P

@@ -21,12 +21,13 @@ class MarsPhotoFragment : Fragment() {
     private val binding
         get() = _binding!!
 
-
+    // Исправил данный метод, так как в старом варианте с вызовом getParcelable
+    // с двумя аргументами, приложение крашилось на эмуляторе преподавателя.
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param = it.getParcelable(KEY_PARAM, MarsPhoto::class.java)!!
+            param = it.getParcelable<MarsPhoto>(KEY_PARAM)!!
         }
     }
 
