@@ -5,3 +5,5 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 m
 =app/src/main/java/com/example/know_everything/MainActivity.kt,e\b\eb85ce6c9ac66ef5d62102f4c44df8bb98e493d4
+@
+build.gradle.kts,d\b\dbcff70658daf80b53ce624f6adcaa529df5ed8d

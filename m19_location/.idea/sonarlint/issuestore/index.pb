@@ -19,12 +19,8 @@ Uapp/src/main/java/com/example/attractions/presentation/fragments/ListPhotoFragm
 Uapp/src/main/java/com/example/attractions/presentation/fragments/TakePhotoFragment.kt,6\2\6273fe3241ff00b43310088f39077e6f6e7a79c0
 á
 Wapp/src/main/java/com/example/attractions/presentation/viewmodels/ListPhotoViewModel.kt,a\4\a413400176490433c3c1d8efc927161c46366a56
-é
-^app/src/main/java/com/example/attractions/presentation/viewmodels/ListPhotoViewModelFactory.kt,3\3\33359d8b5e159fe1fec24084ae9e50b2bba22bbf
 á
 Wapp/src/main/java/com/example/attractions/presentation/viewmodels/TakePhotoViewModel.kt,d\e\deeea1713413eaf468cd8f7c8f9d70c713c169b6
-é
-^app/src/main/java/com/example/attractions/presentation/viewmodels/TakePhotoViewModelFactory.kt,5\e\5ed69a52f011e5db7f9876b0a1c60762f496878d
 Ö
 Uapp/src/main/java/com/example/attractions/presentation/viewmodels/ListPhotoAdapter.kt,8\0\8084483d53340f03eabc4a5a2d884be0aa73ba37
 P
@@ -37,3 +33,11 @@ v
 Fapp/src/main/java/com/example/attractions/presentation/MainActivity.kt,2\6\2663c587584601cdddf7bf80a24f9188e093964e
 o
 ?app/src/main/java/com/example/attractions/data/db/Migrations.kt,5\e\5e64f1443c31181964c9fb0116e8991f525f7d03
+C
+settings.gradle.kts,7\4\749edfcc96398253e5b3416184e95c46621da850
+
+Oapp/src/main/java/com/example/attractions/presentation/fragments/MapFragment.kt,1\9\198b8fe1c140b3f05492731544b61076c55d0327
+z
+Japp/src/main/java/com/example/attractions/presentation/ViewModelFactory.kt,a\a\aa86767889c8014c005670610cdc3e7c6d029ad2
+Å
+Qapp/src/main/java/com/example/attractions/presentation/viewmodels/MapViewModel.kt,e\1\e13cfba9cc92e77d7338d42c47b2273192149489

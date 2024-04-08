@@ -25,9 +25,8 @@ import com.bumptech.glide.Glide
 import com.example.attractions.R
 import com.example.attractions.data.model.Photo
 import com.example.attractions.databinding.FragmentTakePhotoBinding
-import com.example.attractions.presentation.viewmodels.ListPhotoAdapter
+import com.example.attractions.presentation.ViewModelFactory
 import com.example.attractions.presentation.viewmodels.TakePhotoViewModel
-import com.example.attractions.presentation.viewmodels.TakePhotoViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -52,7 +51,7 @@ class TakePhotoFragment : Fragment() {
         get() = _binding!!
 
     @Inject
-    lateinit var takePhotoViewModelFactory: TakePhotoViewModelFactory
+    lateinit var takePhotoViewModelFactory: ViewModelFactory
     private val viewModel: TakePhotoViewModel by viewModels { takePhotoViewModelFactory }
 
     @SuppressLint("WeekBasedYear")
@@ -132,6 +131,11 @@ class TakePhotoFragment : Fragment() {
                         val datePhoto = SimpleDateFormat(FILE_NAME_FORMAT, Locale.getDefault()).format(System.currentTimeMillis())
                         val photo = Photo(viewModel.getUriLastPhoto(requireContext()), datePhoto)
                         viewModel.insertPhoto(photo)
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.PhotoSave), Toast.LENGTH_SHORT
+                        ).show()
+
                     }
 
                     override fun onError(exception: ImageCaptureException) {

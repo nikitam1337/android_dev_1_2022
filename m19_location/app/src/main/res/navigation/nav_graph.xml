@@ -16,6 +16,12 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
 
+        <action
+            android:id="@+id/action_ListPhotoFragment_to_MapFragment"
+            app:destination="@id/mapFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+
     </fragment>
 
     <fragment
@@ -29,7 +35,19 @@
             app:destination="@id/listPhotoFragment"
             app:popUpTo="@id/listPhotoFragment"
             app:popUpToInclusive="true"/>
+
     </fragment>
 
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.attractions.presentation.fragments.MapFragment"
+        tools:layout="@layout/fragment_map">
+
+        <action
+            android:id="@+id/action_MapFragment_to_listPhotoFragment"
+            app:destination="@id/listPhotoFragment"
+            app:popUpTo="@id/listPhotoFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 
 </navigation>

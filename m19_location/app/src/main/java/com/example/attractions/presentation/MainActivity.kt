@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import com.example.attractions.R
+import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.mapview.MapView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

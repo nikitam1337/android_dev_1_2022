@@ -12,9 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.attractions.R
 import com.example.attractions.data.model.Photo
 import com.example.attractions.databinding.FragmentListPhotoBinding
+import com.example.attractions.presentation.ViewModelFactory
 import com.example.attractions.presentation.viewmodels.ListPhotoAdapter
 import com.example.attractions.presentation.viewmodels.ListPhotoViewModel
-import com.example.attractions.presentation.viewmodels.ListPhotoViewModelFactory
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -28,7 +28,7 @@ class ListPhotoFragment : Fragment() {
         get() = _binding!!
 
     @Inject
-    lateinit var listPhotoViewModelFactory: ListPhotoViewModelFactory
+    lateinit var listPhotoViewModelFactory: ViewModelFactory
     private val viewModel: ListPhotoViewModel by viewModels { listPhotoViewModelFactory }
 
     private val listPhotoAdapter = ListPhotoAdapter(
@@ -48,6 +48,10 @@ class ListPhotoFragment : Fragment() {
 
         binding.buttonTakeNewPhoto.setOnClickListener {
             findNavController().navigate(R.id.action_ListPhotoFragment_to_TakePhotoFragment)
+        }
+
+        binding.buttonGoToMap.setOnClickListener {
+            findNavController().navigate(R.id.action_ListPhotoFragment_to_MapFragment)
         }
 
         binding.recyclerView.adapter = listPhotoAdapter

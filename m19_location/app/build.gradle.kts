@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.crashlytics.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,5 +74,7 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 
     implementation (libs.glide)
+
+    implementation ("com.yandex.android:maps.mobile:4.5.1-lite")
 
 }
