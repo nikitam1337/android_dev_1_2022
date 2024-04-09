@@ -52,20 +52,19 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
     private val binding
         get() = _binding!!
 
-    private var saveLatitude = 0.0
-    private var saveLongitude = 0.0
-    private var saveZoom = 0.0f
+    private var saveLatitude = START_POINT.latitude
+    private var saveLongitude = START_POINT.longitude
+    private var saveZoom = 12.0f
+    private var routeStartLocation = START_POINT
+    private var followUserLocation = false
 
     private lateinit var mapView: MapView
-
-    private var followUserLocation = false
 
     private lateinit var userLocationLayer: UserLocationLayer
     private lateinit var pinsCollection: MapObjectCollection
 
-    private var routeStartLocation = START_POINT
 
-
+    // TODO изменить поведение этого метода
     private val placeMarkTapListener = MapObjectTapListener { _, point ->
         Toast.makeText(
             context,
@@ -74,7 +73,6 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         ).show()
         true
     }
-
 
     private val launcher =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { map ->
@@ -108,6 +106,11 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         super.onViewCreated(view, savedInstanceState)
         mapView = binding.mapview
 
+        mapView.mapWindow.map.move(
+            START_POSITION
+        )
+
+
         binding.location.setOnClickListener {
             followUserLocation = true
             if (checkOnGps()) {
@@ -116,6 +119,18 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
                 turnOnGps()
             }
         }
+
+        binding.buttonZoomPlus.setOnClickListener { changeZoomButton(+ZOOM_STEP) }
+        binding.buttonZoomMinus.setOnClickListener { changeZoomButton(-ZOOM_STEP) }
+
+        if (savedInstanceState != null) {
+            saveLatitude = savedInstanceState.getDouble("latitude")
+            saveLongitude = savedInstanceState.getDouble("longitude")
+            saveZoom = savedInstanceState.getFloat("zoom")
+            routeStartLocation = Point(saveLatitude, saveLongitude)
+            cameraSavePosition(saveZoom)
+        }
+
 
 
     }
@@ -129,6 +144,17 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
                 null
             )
         }
+    }
+
+    private fun cameraSavePosition(saveZoom: Float) {
+        mapView.mapWindow.map.move(
+            CameraPosition(
+                Point(saveLatitude, saveLongitude),
+                saveZoom,
+                0f,
+                0f
+            )
+        )
     }
 
 
@@ -197,7 +223,7 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
 
         viewModel.listPoints.onEach { listPoints ->
             val imageProvider =
-                ImageProvider.fromResource(requireContext(), R.drawable.pin_test)
+                ImageProvider.fromResource(requireContext(), R.drawable.mark)
 
             pinsCollection = mapView.mapWindow.map.mapObjects.addCollection()
             listPoints.forEach { point ->
@@ -210,6 +236,19 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         }.launchIn(lifecycleScope)
 
     }
+
+    private fun changeZoomButton(value: Float) {
+        with(mapView.mapWindow.map.cameraPosition) {
+            mapView.mapWindow.map.move(
+                CameraPosition(target, zoom + value, azimuth, tilt),
+                SMOOTH_ANIMATION,
+                null,
+            )
+        }
+    }
+
+
+
 
 
     override fun onStart() {
@@ -230,15 +269,7 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         _binding = null
     }
 
-    companion object {
-        private val START_POINT = Point(59.220496, 39.891517)
-        private val START_POSITION = CameraPosition(START_POINT, 12.0f, 0f, 0f)
 
-        private val REQUEST_PERMISSIONS: Array<String> = buildList {
-            add(android.Manifest.permission.ACCESS_FINE_LOCATION)
-            add(android.Manifest.permission.ACCESS_COARSE_LOCATION)
-        }.toTypedArray()
-    }
 
     private fun setAnchor() {
         userLocationLayer.setAnchor(
@@ -287,4 +318,27 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
             }
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putDouble("latitude", saveLatitude)
+        outState.putDouble("longitude", saveLongitude)
+        outState.putFloat("zoom", saveZoom)
+    }
+
+
+    companion object {
+        private val START_POINT = Point(59.220496, 39.891517)
+        private val START_POSITION = CameraPosition(START_POINT, 12.0f, 0f, 0f)
+
+        private const val ZOOM_STEP = 1f
+        private val SMOOTH_ANIMATION = Animation(Animation.Type.SMOOTH, 0.5f)
+
+        private val REQUEST_PERMISSIONS: Array<String> = buildList {
+            add(android.Manifest.permission.ACCESS_FINE_LOCATION)
+            add(android.Manifest.permission.ACCESS_COARSE_LOCATION)
+        }.toTypedArray()
+    }
+
+
 }
