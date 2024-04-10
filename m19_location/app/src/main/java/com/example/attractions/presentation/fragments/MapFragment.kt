@@ -8,9 +8,13 @@ import android.graphics.PointF
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupWindow
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -18,6 +22,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.attractions.R
+import com.example.attractions.data.model.Attraction
 import com.example.attractions.databinding.FragmentMapBinding
 import com.example.attractions.presentation.ViewModelFactory
 import com.example.attractions.presentation.viewmodels.MapViewModel
@@ -29,6 +34,7 @@ import com.yandex.mapkit.layers.ObjectEvent
 import com.yandex.mapkit.map.CameraListener
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.CameraUpdateReason
+import com.yandex.mapkit.map.InputListener
 import com.yandex.mapkit.map.Map
 import com.yandex.mapkit.map.MapObjectCollection
 import com.yandex.mapkit.map.MapObjectTapListener
@@ -63,14 +69,11 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
     private lateinit var userLocationLayer: UserLocationLayer
     private lateinit var pinsCollection: MapObjectCollection
 
+    private var currentPopupWindow: PopupWindow? = null
 
-    // TODO изменить поведение этого метода
-    private val placeMarkTapListener = MapObjectTapListener { _, point ->
-        Toast.makeText(
-            context,
-            "${point.longitude}, ${point.latitude})",
-            Toast.LENGTH_SHORT
-        ).show()
+    private val placeMarkTapListener = MapObjectTapListener { mapObject, _ ->
+        val attraction = mapObject.userData as Attraction
+        showCustomBalloon(attraction)
         true
     }
 
@@ -130,7 +133,6 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
             routeStartLocation = Point(saveLatitude, saveLongitude)
             cameraSavePosition(saveZoom)
         }
-
 
 
     }
@@ -221,20 +223,59 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
             FirebaseCrashlytics.getInstance().recordException(e)
         }
 
-        viewModel.listPoints.onEach { listPoints ->
+        mapView.mapWindow.map.addInputListener(object : InputListener {
+            override fun onMapTap(map: Map, point: Point) {
+                // Закрываем всплывающее окно при нажатии на карту
+                currentPopupWindow?.dismiss()
+            }
+
+            override fun onMapLongTap(map: Map, point: Point) {}
+        })
+
+
+        viewModel.listAttractions.onEach { listAttractions ->
             val imageProvider =
                 ImageProvider.fromResource(requireContext(), R.drawable.mark)
 
             pinsCollection = mapView.mapWindow.map.mapObjects.addCollection()
-            listPoints.forEach { point ->
+            listAttractions.forEach { attraction ->
                 pinsCollection.addPlacemark().apply {
-                    geometry = point
+                    geometry = attraction.point
                     setIcon(imageProvider)
+                    userData = attraction
                     addTapListener(placeMarkTapListener)
                 }
             }
         }.launchIn(lifecycleScope)
+    }
 
+    private fun showCustomBalloon(attraction: Attraction) {
+
+        currentPopupWindow?.dismiss()
+
+        // Создаем всплывающее окно с пользовательским представлением
+        val balloonView = LayoutInflater.from(context).inflate(R.layout.balloon_layout, null)
+        val title = balloonView.findViewById<TextView>(R.id.balloon_title)
+        val description = balloonView.findViewById<TextView>(R.id.balloon_description)
+
+        title.text = attraction.name
+        description.text = attraction.description
+
+        // Отображаем всплывающее окно
+        val popupWindow = PopupWindow(
+            balloonView,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        popupWindow.showAtLocation(binding.root, Gravity.CENTER, 0, 0)
+
+        // Сохраняем всплывающее окно для последующего закрытия
+        currentPopupWindow = popupWindow
+
+        val closeButton = balloonView.findViewById<Button>(R.id.close_button)
+        closeButton.setOnClickListener {
+            popupWindow.dismiss()
+        }
     }
 
     private fun changeZoomButton(value: Float) {
@@ -246,9 +287,6 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
             )
         }
     }
-
-
-
 
 
     override fun onStart() {
@@ -268,7 +306,6 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         super.onDestroyView()
         _binding = null
     }
-
 
 
     private fun setAnchor() {
@@ -326,7 +363,6 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
         outState.putFloat("zoom", saveZoom)
     }
 
-
     companion object {
         private val START_POINT = Point(59.220496, 39.891517)
         private val START_POSITION = CameraPosition(START_POINT, 12.0f, 0f, 0f)
@@ -339,6 +375,4 @@ class MapFragment : Fragment(), UserLocationObjectListener, CameraListener {
             add(android.Manifest.permission.ACCESS_COARSE_LOCATION)
         }.toTypedArray()
     }
-
-
 }

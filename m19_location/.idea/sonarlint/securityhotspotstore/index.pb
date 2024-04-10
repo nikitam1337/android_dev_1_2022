@@ -41,3 +41,7 @@ z
 Japp/src/main/java/com/example/attractions/presentation/ViewModelFactory.kt,a\a\aa86767889c8014c005670610cdc3e7c6d029ad2
 Å
 Qapp/src/main/java/com/example/attractions/presentation/viewmodels/MapViewModel.kt,e\1\e13cfba9cc92e77d7338d42c47b2273192149489
+r
+Bapp/src/main/java/com/example/attractions/data/model/attraction.kt,f\8\f88bc3c258c6a82cad9bcfcf890a6f9dd9992fe2
+r
+Bapp/src/main/java/com/example/attractions/data/model/Attraction.kt,a\2\a2667dd674872380be1bd5e14b7b20eb1e3bed3c
