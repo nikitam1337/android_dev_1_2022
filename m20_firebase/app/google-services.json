@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25376867365",
+    "project_id": "geekbrains-homework-9ae88",
+    "storage_bucket": "geekbrains-homework-9ae88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25376867365:android:e417473f606d407186abcc",
+        "android_client_info": {
+          "package_name": "com.example.attractions"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJODE8gBnv6bVqWS_eU6f9vzmTgeS-HVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
